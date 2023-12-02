@@ -15,14 +15,18 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class ProductPrice {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "price_id")
+    private long price_id;
+
     @JoinColumn(name = "product_id")
     @ManyToOne
     private Product product;
-    @Id
+
     @Column(name = "price_date_time")
     private LocalDateTime price_date_time;
+
     @Column(name = "price", nullable = false)
     private double price;
     @Column(name = "note")
